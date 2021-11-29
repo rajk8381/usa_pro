@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    h1{
+    color:blue;
+    text-align:center;
+    }
+
+    </style>
+</head>
+
+
+<body>
+<div class="container" align="center">
+    <h1>Super admin log in:</h1>
+    <hr>
+    <h2>Please provide log in credentials:</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+fgdsgsd
+        <input type="submit" name="" value="Login">
+    </form>
+</body>
+</html>
+
+
+

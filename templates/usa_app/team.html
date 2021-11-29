@@ -1,0 +1,70 @@
+{% extends 'usa_app/base2.html' %}
+{% block body %}
+<style>
+  .bg-light-gray{
+            background: #f2f2f2 !important;
+            }
+
+            .btn-team{
+            position: absolute;
+
+            right: 10px;
+            top: 10px;
+            }
+            .btn-team-delete{
+            position: absolute;
+            right: 10px;
+            top: 60px;
+            }
+</style>
+
+<!-- ======= Team Section ======= -->
+<section id="team" class="team ">
+  <div class="m-auto">
+        {% if messages %}
+        <div class="alert alert-info text-center">
+            {% for message in messages %}
+            <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+  <div class="container">
+    <div class="row">
+      {% for team in teams %}
+      <div class="col-lg-6 my-3">
+
+        <div class="member d-flex align-items-start bg-light-gray">
+
+          <div class="pic">
+            <img src="/media/{{team.image }}" class="img-fluid" alt="">
+          </div>
+          <div class="member-info">
+            <h4>{{team.name|title }}</h4>
+            <span>Founder</span>
+            <p>{{team.position|title }}</p>
+            <div class="social">
+              <a href="" title="twitter profile link"><i class="ri-twitter-fill"></i></a>
+              <a href="" title="facebook profile link"><i class="ri-facebook-fill"></i></a>
+              <a href="" class="instagram profile link"><i class="ri-instagram-fill"></i></a>
+              <a href="" class="linkedin profile link"> <i class="ri-linkedin-box-fill"></i> </a>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="my-4">
+               <a onclick="editTeamMember('{{team.id}}')" class="btn btn-warning float-right btn-team text-white" ><i class="fa fa-pencil" aria-hidden="true"></i></a>
+               <a onclick="deleteTeamMember('{{team.id}}')" class="btn btn-danger float-right btn-team-delete text-white" ><i class="fa fa-trash" aria-hidden="true"></i></a>
+            </div>
+            {% endif %}
+          </div>
+
+        </div>
+
+
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section><!-- End Team Section -->
+
+{% endblock %}

@@ -1,0 +1,30 @@
+<form method="post" id="editModelFormAjax" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+    <div class="form-group my-2">
+        <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+</form>
+
+<script>
+    $('#editModelFormAjax').submit(function(e){
+        e.preventDefault();
+       var formData = new FormData(this);
+
+       $.ajax({
+            url:"/post/update/{{id}}/",
+            data:formData,
+            type:"post",
+            contentType: false,
+            processData: false,
+            success:function(data){
+            location.reload();
+             //$('#CustomeModal').modal('toggle');
+
+            }
+       });
+
+   });
+</script>
+
+

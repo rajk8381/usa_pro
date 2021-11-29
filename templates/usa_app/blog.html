@@ -1,0 +1,100 @@
+{% extends 'usa_app/base2.html'%}
+{% block body %}
+<style>
+    .post.post-thumb {
+        position: relative;
+    }
+    .post {
+    margin-bottom: 40px;
+    height: 200px;
+    overflow: hidden;
+    }
+    .post .post-img {
+        display: block;
+        -webkit-transition: .2s opacity;
+        transition: .2s opacity;
+    }
+
+    .post.post-thumb .post-body {
+    position: absolute;
+    bottom: 0;
+    padding: 20px 15px;
+
+}
+.post .post-meta {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.post-meta .post-category.cat-2 {
+    background-color: #ff8700;
+}
+.post.post-thumb .post-meta .post-date {
+    color: #eceef2;
+}
+.post.post-thumb .post-title {
+    font-size: 22px;
+}
+.post.post-thumb .post-title>a {
+    color: #fff;
+}
+.post-image{
+    max-height:250px;
+    overflow:hidden;
+    transition: 5s;
+}
+
+.post-image img{
+    transition: 2s;
+}
+.post-image:hover img{
+    transform: scale(1.3);
+    filter: blur(1px);
+}
+
+.post-action{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 9;
+}
+</style>
+<body>
+<div class="my-4">....</div>
+    <div class="container">
+        <h3 class="text-center my-4">Blog</h3>
+        <div class="row">
+            {% for post in posts%}
+            <div class="col-md-4">
+                <div class="post post-thumb">
+                    {% if user.is_authenticated %}
+                    <div class="post-action">
+                        <div class="my-4">
+                               <a onclick="editPostMember('{{post.id}}')" class="btn btn-warning  text-white" ><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            <div class="my-2"></div>
+                            <a onclick="deletePostMember('{{post.id}}')" class="btn btn-danger text-white" ><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            </div>
+                    </div>
+                    {% endif%}
+                    <a class="post-img" href="/details/{{post.id}}/">
+                        <div class="post-image">
+                        <img src="/media/{{post.image}}"
+                            width="100%" alt="{{post.title}}">
+                        </div>
+                    </a>
+                    <div class="post-body">
+                        <div class="post-meta">
+                            <small class="post-date"> {{post.created_at|date:"D d M Y"}}</small>
+                        </div>
+                        <h3 class="post-title"><a href="#">{{post.title}}</a></h3>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</body>
+
+{% endblock %}

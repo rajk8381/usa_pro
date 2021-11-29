@@ -1,0 +1,26 @@
+<form method="post" id="addModelFormAjax" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+    <div class="form-group my-2">
+        <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+</form>
+<script>
+    $('#addModelFormAjax').submit(function(e){
+        e.preventDefault();
+       var formData = new FormData(this);
+       $.ajax({
+            url:"/video/add/",
+            data:formData,
+            type:"post",
+            contentType: false,
+            processData: false,
+            success:function(data){
+            location.reload();
+            }
+       });
+
+   });
+</script>
+
+

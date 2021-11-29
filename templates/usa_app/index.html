@@ -1,0 +1,42 @@
+{% extends 'usa_app/base2.html'%}
+
+{% block body %}
+
+<style>
+
+page-box{
+position: relative;
+margin-top:20%;
+}
+  .page-title{
+    position: absolute;
+    z-index: 999999;
+
+    color: #190c0c;
+    background: #fff;
+    padding: 10px;
+  }
+</style>
+  <!-- ======= Header ======= -->
+ <div class="container">
+    <iframe width="100%" height="720" src="{{project.video_link}}" title="YouTube video player"
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+     {% if user.is_authenticated %}
+        <div class="edit-box">
+            <button onclick="LandingEdit()" class="btn btn-warning text-white">Edit Video</button>
+            <div class="my-2" id="landingVideo" style="display: none;">
+             <form method="post" action="/video/update/">
+                    {% csrf_token %}
+                    <input type="hidden"  value="{{project.id}}" name="id">
+                    <input type="url" class="form-control" name="video_link" value="{{project.video_link}}" placeholder="YouTube Link here">
+                    <button type="submit" name="vupdate_edit" class="btn btn-success my-2">Update</button>
+             </form>
+
+            </div>
+        </div>
+
+    {% endif%}
+     </div>
+  {% endblock %}

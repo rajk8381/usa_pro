@@ -1,0 +1,103 @@
+{% extends 'usa_app/base2.html'%}
+
+{% block body %}
+
+<style>
+    .post.post-thumb {
+        position: relative;
+    }
+    .post {
+    margin-bottom: 40px;
+    }
+    .post .post-img {
+        display: block;
+        -webkit-transition: .2s opacity;
+        transition: .2s opacity;
+    }
+
+    .post.post-thumb .post-body {
+    position: absolute;
+    bottom: 0;
+    padding: 20px 15px;
+
+}
+.post .post-meta {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.post-meta .post-category.cat-2 {
+    background-color: #ff8700;
+}
+.post.post-thumb .post-meta .post-date {
+    color: #eceef2;
+}
+.post.post-thumb .post-title {
+    font-size: 22px;
+}
+.post.post-thumb .post-title>a {
+    color: #fff;
+}
+.post-image{
+    max-height:250px;
+    overflow:hidden;
+}
+
+</style>
+<body>
+<div class="container">
+    <h3 class=" my-4">Blog Details</h3>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="post post-thumb">
+                <a class="post-img" href="blog-post.html">
+                    <div class="post-image-2">
+                    <img src="/media/{{post.image}}"
+                        width="100%" alt="" data-pagespeed-url-hash="67351088"
+                         >
+                    </div>
+                </a>
+                <div class="post-footer">
+
+                    <h2 class="post-title mt-4 "><a href="#" class="text-primary">{{post.title}}</a></h2>
+                    <p class="text-muted">
+                        Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.
+                    </p>
+                    <div class="post-box">
+                        <small class="post-date">{{post.created_at|date:"D d M Y"}}</small>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+            {% for post in realated_post%}
+            <div class="col-md-12">
+                <div class="post post-thumb">
+                    <a class="post-img" href="/details/{{post.id}}/">
+                        <div class="post-image">
+                        <img src="/media/{{post.image}}"
+                            width="100%" alt=""
+                             >
+                        </div>
+                    </a>
+                    <div class="post-body">
+                        <div class="post-meta">
+                             <small class="post-date"> {{post.created_at|date:"D d M Y"}}</small>
+                        </div>
+                        <h5 class="post-title"><a href="#">{{post.title}}</a></h5>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+    </div>
+        </div>
+    </div>
+
+</div>
+</body>
+
+{% endblock %}
