@@ -19,6 +19,9 @@ urlpatterns = [
     path('team/update/<team_id>/', views.team_edit_view, name="team_update"),
     path('post/update/<post_id>/', views.update_post_view, name="post_update"),
     path('file/update/<post_id>/', views.update_file_view, name="file_update"),
-    path('video/add/', views.add_post_view, name="add_update"),
+    path('video/add/', views.add_video_view, name="add_video"),
+    path('post/add/', views.add_post_view, name="add_post"),
+    path('team/add/', views.add_team_view, name="add_team"),
+    path('file/add/', views.add_file_view, name="add_file"),
 
 ]

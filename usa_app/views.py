@@ -87,6 +87,10 @@ def update_video_view(request):
         print(request.POST)
         id = request.POST.get('id')
         video_link = request.POST.get('video_link')
+        try:
+            video_link = "https://www.youtube.com/embed/" + video_link.split("?v=")[1]
+        except:
+            video_link=video_link
         setting=Setting.objects.get(id=id)
         setting.video_link = video_link
         setting.save()
@@ -96,12 +100,15 @@ def update_video_view(request):
     if 'vupdate_btn' in request.POST:
         id=request.POST.get('id')
         video_link=request.POST.get('video_link')
+        try:
+            video_link = "https://www.youtube.com/embed/" + video_link.split("?v=")[1]
+        except:
+            video_link=video_link
         videos = Video.objects.get(id=id)
         videos.video_link=video_link
         videos.save()
         messages.success(request, f'Video Updated Successfully!')
     return redirect('videos')
-
 def blog_view(request):
     context = {}
     posts = Post.objects.filter().order_by('-id')
@@ -140,7 +147,7 @@ def delete_file_view(request,id=None):
     context = {}
     file = FileManagement.objects.get(id=id)
     if file:
-        # file.delete()
+        file.delete()
         messages.error(request, f'File Deleted Successfully.')
     return HttpResponse("deleted")
 
@@ -170,13 +177,40 @@ def update_file_view(request,post_id):
 
 def add_post_view(request):
     context = {}
-    form =VideoForm(request.POST or None, request.FILES or None)
+    form =PostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
         return HttpResponse("done")
     context['form']=form
     return render(request, 'usa_app/add_post.html',context)
 
+def add_team_view(request):
+    context = {}
+    form =TeamForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponse("done")
+    context['form']=form
+    return render(request, 'usa_app/add_team.html',context)
+
+
+def add_file_view(request):
+    context = {}
+    form =FileManagementForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponse("done")
+    context['form']=form
+    return render(request, 'usa_app/add_file.html',context)
+
+def add_video_view(request):
+    context = {}
+    form =VideoForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponse("done")
+    context['form']=form
+    return render(request, 'usa_app/add_video.html',context)
 
 def setting_view(request):
     context = {}

@@ -189,12 +189,34 @@ function loadSetting(){
 
 <script>
   // add new video
-  function addVideo(form_id){
+  function addVideo(){
     url_path ="/video/add/"
     $("#CustomeModal").modal('show');
     $("#modelFormModel").load(url_path);
     $(".modal-title").html("Add Video");
   }
+
+  function addPost(){
+    url_path ="/post/add/"
+    $("#CustomeModal").modal('show');
+    $("#modelFormModel").load(url_path);
+    $(".modal-title").html("Add Post");
+  }
+
+  function addTeam(){
+    url_path ="/team/add/"
+    $("#CustomeModal").modal('show');
+    $("#modelFormModel").load(url_path);
+    $(".modal-title").html("Add Team");
+  }
+
+  function addFile(){
+    url_path ="/file/add/"
+    $("#CustomeModal").modal('show');
+    $("#modelFormModel").load(url_path);
+    $(".modal-title").html("Add File");
+  }
+
 
 
 </script>

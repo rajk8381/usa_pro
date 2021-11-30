@@ -1,0 +1,115 @@
+Question1
+Use python lists and make an list of numbers.
+Write a function which returns sum of the list of numbers
+
+def fun(lst,n):
+    to=0
+    to=int()
+    for i in range(0,n):
+        to=to+lst[i]
+    return to
+lst = []
+n = int(input("enter length ="))
+for i in range(0, n):
+    ele = int(input())
+    lst.append(ele)
+sum=fun(lst,n)
+print("sum of list=",sum)
+
+
+Question2 
+Setup a dict structure like this in python
+Dict1: (this is a key, value pair of user id and username)
+{
+   “1” : “name1”,
+   “2” : “name2”,
+   “3” : “name3”
+} etc.. 
+Dict2: (this is a key value pair of user id and exam score) 
+{
+   “1” : 50,
+   “2” : 60
+   “3” : 70
+}
+These are just sample data assume there are hundreds of users 
+
+Write a function in python in python, which will return maximum i.e function should return dictionary like
+{
+  “3” : 70
+}
+
+
+def max(d2,n):
+    lst=sorted(d2.items(),key=lambda x:x[1])
+    return lst[n-1]
+d1={}
+d2={}
+d3={}
+n=int(input("enter limit="))
+for i in range(0,n):
+    key=int(input("enter the id="))
+    name=input("enter the name=")
+    score=int(input("enter the score="))
+    d1[key]=name
+    d2[key]=score
+l=max(d2,n)
+d3[l[0]]=l[1]
+print(d3)
+
+
+Question 3
+Assume we have list like this
+[0,0,0,1,1,1,0,0,0,1,1,0,1,1,1,1,0,0,1,1]
+Basically a list of zero’s and one’s.
+Write a python function to the number of maximum consecutive  one’s present in the array. 
+E.g output for the above array would be 4
+
+
+def myfun(arr,n):
+    count=0
+    result=0
+    for i in range(0,n):
+        if arr[i]==0:
+            count=0.
+        else:
+            count+=1
+            result=max(result, count)
+    return result
+arr=[]
+n=int(input("enter the lenght="))
+for i in range(0,n):
+    ele=int(input())
+    arr.append(ele)
+res=myfun(arr,n)
+print(res)
+
+
+Question 4
+Design a mysql database. Requirements are as follows 
+We have a user entity with columns username, password
+Every use can have multiple addresses. Address entity will have column street, pincode, country, state, phone no. So one user can have multiple addresses. 
+Design a db structure for this using create table sql syntax and submit that.
+Next,
+Write a route in flask GET, POST route to save a user, login a user, add/update address for that user.
+
+
+from flask import Flask, render_template
+from flask_mysqldb import MySQL
+import mysql.connector
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="username",
+  password="password",
+  database="database_name"
+)
+cursor = mydb.cursor()
+
+cursor.execute("""CREATE TABLE IF NOT EXISTS User(username varchar(50) primary,password varchar(50))""")
+
+cursor.execute("""CREATE TABLE IF NOT EXISTS Address(username varchar(50),
+                                                    street varchar(20),
+                                                    pincode int,
+                                                    country varchar(10),
+                                                    state varchar(20),
+                                                    phone number varchar(20))""")
+cursor.close()

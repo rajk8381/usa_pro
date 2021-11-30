@@ -16,6 +16,13 @@
     <p>Test,challenge and improve our assumptions and Help us to improve our story,models and much more.</p>
     <p>Join the movement.</p>
     <br>
+
+    {% if user.is_authenticated %}
+        <div class="my-4">
+            <a href="#" onclick="addFile()" class="btn btn-primary" >Add File</a>
+
+        </div>
+          {% endif%}
     {% for file in files%}
         {% if file.file_type in  '1' %}
         <a href="/media/{{file.file}}" class="login m-4" title="Login"><img src="/static/images/pdf.jpg" /></a>

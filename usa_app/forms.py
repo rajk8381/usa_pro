@@ -47,6 +47,8 @@ class PostForm(forms.ModelForm):
         for visible in self.visible_fields():
             visible.field.widget.attrs['class'] = 'form-control'
 
+
+
 class FileManagementForm(forms.ModelForm):
     class Meta:
         model =FileManagement

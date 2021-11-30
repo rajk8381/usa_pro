@@ -30,6 +30,12 @@
         {% endif %}
     </div>
   <div class="container">
+
+      {% if user.is_authenticated %}
+        <div class="my-4">
+            <a href="#" onclick="addTeam()" class="btn btn-primary" >Add Team</a>
+        </div>
+          {% endif%}
     <div class="row">
       {% for team in teams %}
       <div class="col-lg-6 my-3">
