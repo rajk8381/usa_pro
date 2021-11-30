@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9511c22a-03f8-43a2-902f-c3ae6a324179" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/usa_app/add_file.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/usa_app/add_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usa_app/add_post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/usa_app/base2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usa_app/base2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/usa_app/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usa_app/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/usa_app/file.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usa_app/file.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/usa_app/team.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usa_app/team.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/usa_app/videos.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usa_app/videos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usa_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/usa_app/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usa_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/usa_app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usa_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/usa_app/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="9511c22a-03f8-43a2-902f-c3ae6a324179" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
